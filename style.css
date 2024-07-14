@@ -22,6 +22,9 @@
     font-size: 4vh;
     opacity: 0;
 }
+.choose:hover{
+    cursor: pointer;
+}
 #choose1{
     top: 50%;
 }
