@@ -26,7 +26,7 @@ function BoxClick() {
     time += 1;
     if (time == 2) {
       in_line = false;
-      choose_open(2, "...", "You Okay?");
+      choose_open("...", "You Okay?", " ", "gay", " ");
     }
   }
 }
@@ -35,47 +35,74 @@ function choose_close() {
   choose1.style.opacity = "0";
   choose2.style.opacity = "0";
   choose3.style.opacity = "0";
-  choose1_Open = false;
-  choose2_Open = false;
-  choose3_Open = false;
+  choose1_BooleanOpen = false;
+  choose2_BooleanOpen = false;
+  choose3_BooleanOpen = false;
 }
 
-function choose1_Open() {
-  choose1.innerHTML = text1;
-  choose1.style.opacity = "1";
-  choose1_BooleanOpen = true;
-  choose1.addEventListener("click", () => {
-    if (choose1_BooleanOpen == true) {
-      choose_close();
-      in_line = true;
-      BoxClick();
-    }
-  });
-}
-
-function choose_open(number, text1, text2, text3) {
+function chooseNumber_Open(number, text, outline) {
+  number.innerHTML = text;
+  number.style.opacity = "1";
   switch (number) {
-    case 1:
-      choose1_Open();
+    case choose1:
+      choose1_BooleanOpen = true;
+      number.addEventListener("click", () => {
+        if (choose1_BooleanOpen == true) {
+          choose_close();
+          console.log("choose Close");
+          if (outline == " ") {
+            in_line = true;
+            BoxClick();
+          } else {
+            document.getElementById("text").innerHTML = outline;
+          }
+        }
+      });
+
       break;
-    case 2:
-      choose1.innerHTML = text1;
-      choose2.innerHTML = text2;
-      choose1.style.opacity = "1";
-      choose2.style.opacity = "1";
-      choose1_Open = true;
-      choose2_Open = true;
+    case choose2:
+      choose2_BooleanOpen = true;
+      number.addEventListener("click", () => {
+        if (choose2_BooleanOpen == true) {
+          choose_close();
+          console.log("choose Close");
+          if (outline == " ") {
+            in_line = true;
+            BoxClick();
+          } else {
+            document.getElementById("text").innerHTML = outline;
+          }
+        }
+      });
+
       break;
-    case 3:
-      choose1.innerHTML = text1;
-      choose2.innerHTML = text2;
-      choose3.innerHTML = text3;
-      choose1.style.opacity = "1";
-      choose2.style.opacity = "1";
-      choose3.style.opacity = "1";
-      choose1_Open = true;
-      choose2_Open = true;
-      choose3_Open = true;
+    case choose3:
+      choose3_BooleanOpen = true;
+      number.addEventListener("click", () => {
+        if (choose3_BooleanOpen == true) {
+          choose_close();
+          console.log("choose Close");
+          if (outline == " ") {
+            in_line = true;
+            BoxClick();
+          } else {
+            document.getElementById("text").innerHTML = outline;
+          }
+        }
+      });
+
       break;
+  }
+}
+
+function choose_open(text1, text2, text3, outline1, outline2, outline3) {
+  if (text1 != " ") {
+    chooseNumber_Open(choose1, text1, outline1);
+  }
+  if (text2 != " ") {
+    chooseNumber_Open(choose2, text2, outline2);
+  }
+  if (text3 != " ") {
+    chooseNumber_Open(choose3, text3, outline3);
   }
 }
