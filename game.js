@@ -32,7 +32,7 @@ function BoxClick() {
         "นอน",
         "กินข้าว",
         "อาบน้ำ",
-        "",
+        " ",
         "ไม่หิวอะ แต่ง่วง",
         "ไม่อยากอาบน้ำอะ ขี้เกียจ อยากนอนง่าาา"
       );
@@ -50,7 +50,7 @@ function choose_close() {
 }
 function choose_close_next(outline) {
   choose_close();
-  if (outline == "") {
+  if (outline == " ") {
     in_line = true;
     BoxClick();
   } else {
@@ -91,13 +91,13 @@ function chooseNumber_Open(number, text, outline) {
 }
 
 function choose_open(text1, text2, text3, outline1, outline2, outline3) {
-  if (text1 != "") {
+  if (text1 != " ") {
     chooseNumber_Open(choose1, text1, outline1);
   }
-  if (text2 != "") {
+  if (text2 != " ") {
     chooseNumber_Open(choose2, text2, outline2);
   }
-  if (text3 != "") {
+  if (text3 != " ") {
     chooseNumber_Open(choose3, text3, outline3);
   }
 }
