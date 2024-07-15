@@ -7,16 +7,18 @@ let choose2_BooleanOpen = false;
 let choose3_BooleanOpen = false;
 let time = 0;
 const word_list = [
-  "Nissannnnnnnn",
-  "Nissann Gee Ahhhhh",
-  "Ahhhh Nissannn",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
+  "เย้!! ถึงบ้านแล้ว",
+  "เอาแหละ ทำอะไรก่อนดี",
+  "ไปนอนดีฝ่า ว่าแต่ห้องนอนอยู่ไหนวะเนี่ย",
+  "เจอละๆ",
+  "ฝันดี",
+  "Z",
+  "ZZ",
+  "ZZZ",
+  "ZZZZ",
+  "ZZZZZ",
+  "ZZZZZZ",
+  "ZZZZZZZ",
 ];
 let in_line = true;
 box.addEventListener("click", BoxClick);
@@ -26,7 +28,14 @@ function BoxClick() {
     time += 1;
     if (time == 2) {
       in_line = false;
-      choose_open("...", "You Okay?", " ", "gay", " ");
+      choose_open(
+        "นอน",
+        "กินข้าว",
+        "อาบน้ำ",
+        " ",
+        "ไม่หิวอะ นอนดีกว่า",
+        "ไม่อยากอาบน้ำอะ ขี้เกียจ นอนเลยดีกว่า"
+      );
     }
   }
 }
@@ -39,6 +48,16 @@ function choose_close() {
   choose2_BooleanOpen = false;
   choose3_BooleanOpen = false;
 }
+function choose_close_next(outline) {
+  choose_close();
+  if (outline == " ") {
+    in_line = true;
+    BoxClick();
+  } else {
+    document.getElementById("text").innerHTML = outline;
+    in_line = true;
+  }
+}
 
 function chooseNumber_Open(number, text, outline) {
   number.innerHTML = text;
@@ -48,14 +67,7 @@ function chooseNumber_Open(number, text, outline) {
       choose1_BooleanOpen = true;
       number.addEventListener("click", () => {
         if (choose1_BooleanOpen == true) {
-          choose_close();
-          console.log("choose Close");
-          if (outline == " ") {
-            in_line = true;
-            BoxClick();
-          } else {
-            document.getElementById("text").innerHTML = outline;
-          }
+          choose_close_next(outline);
         }
       });
       break;
@@ -63,14 +75,7 @@ function chooseNumber_Open(number, text, outline) {
       choose2_BooleanOpen = true;
       number.addEventListener("click", () => {
         if (choose2_BooleanOpen == true) {
-          choose_close();
-          console.log("choose Close");
-          if (outline == " ") {
-            in_line = true;
-            BoxClick();
-          } else {
-            document.getElementById("text").innerHTML = outline;
-          }
+          choose_close_next(outline);
         }
       });
       break;
@@ -78,14 +83,7 @@ function chooseNumber_Open(number, text, outline) {
       choose3_BooleanOpen = true;
       number.addEventListener("click", () => {
         if (choose3_BooleanOpen == true) {
-          choose_close();
-          console.log("choose Close");
-          if (outline == " ") {
-            in_line = true;
-            BoxClick();
-          } else {
-            document.getElementById("text").innerHTML = outline;
-          }
+          choose_close_next(outline);
         }
       });
       break;

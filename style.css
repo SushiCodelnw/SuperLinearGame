@@ -21,9 +21,14 @@
     text-align: center;
     font-size: 4vh;
     opacity: 0;
+    margin: auto;
+}
+#text{
+    font-size: 2vh;
 }
 .choose{
     cursor: default;
+    font-size: 3vh;
 }
 #choose1{
     top: 50%;
