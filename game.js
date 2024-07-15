@@ -58,7 +58,6 @@ function chooseNumber_Open(number, text, outline) {
           }
         }
       });
-
       break;
     case choose2:
       choose2_BooleanOpen = true;
@@ -74,7 +73,6 @@ function chooseNumber_Open(number, text, outline) {
           }
         }
       });
-
       break;
     case choose3:
       choose3_BooleanOpen = true;
@@ -90,7 +88,6 @@ function chooseNumber_Open(number, text, outline) {
           }
         }
       });
-
       break;
   }
 }
