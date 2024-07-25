@@ -1,0 +1,42 @@
+
+.box{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 30%;
+}
+#box{
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+.choose{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    height: 5%;
+    background-color: #aaa;
+    text-align: center;
+    font-size: 4vh;
+    opacity: 0;
+    margin: auto;
+}
+#text{
+    font-size: 2vh;
+}
+.choose{
+    cursor: default;
+    font-size: 3vh;
+}
+#choose1{
+    top: 50%;
+}
+#choose2{
+    top: 45%;
+}
+#choose3{
+    top: 39.9%;
+}
