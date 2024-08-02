@@ -15,6 +15,7 @@ body {
 #text {
   font-size: 3vh;
   color: #fff;
+  text-indent: 30px;
 }
 
 .choose {
@@ -56,10 +57,18 @@ body {
   position: absolute;
   top: 60%;
   width: 70%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px; /* Adjust padding here */
   border-radius: 10px;
   cursor: pointer;
   margin: 20px;
-  text-indent: 30px;
+}
+#speaker{
+  font-size: 5vh;
+  color: #fff;
+  text-shadow: 2px 4px 6px black;
+}
+#text-box h1 {
+  margin: 0;
+  padding: 0;
 }
