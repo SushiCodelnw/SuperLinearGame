@@ -1,42 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+}
+.box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 30%;
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 
-.box{
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 80%;
-    height: 30%;
+#text {
+  font-size: 3vh;
+  color: #fff;
 }
-#box{
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 1;
+
+.choose {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 5%;
+  background-color: #aaa;
+  text-align: center;
+  font-size: 4vh;
+  opacity: 0;
+  margin: 10px 0;
+  border: 1px solid #000;
+  cursor: default;
+  pointer-events: none;
+  transition: opacity 0.3s ease, cursor 0.3s ease;
+  z-index: 2;
 }
-.choose{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 30%;
-    height: 5%;
-    background-color: #aaa;
-    text-align: center;
-    font-size: 4vh;
-    opacity: 0;
-    margin: auto;
+
+.choose.visible {
+  cursor: pointer;
+  pointer-events: auto;
 }
-#text{
-    font-size: 2vh;
+
+#choose1 {
+  top: 30%;
 }
-.choose{
-    cursor: default;
-    font-size: 3vh;
+
+#choose2 {
+  top: 40%;
 }
-#choose1{
-    top: 50%;
+
+#choose3 {
+  top: 50%;
 }
-#choose2{
-    top: 45%;
-}
-#choose3{
-    top: 39.9%;
+
+#text-box {
+  position: absolute;
+  top: 60%;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px;
+  text-indent: 30px;
 }
