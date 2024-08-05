@@ -4,7 +4,8 @@ const choose2 = document.getElementById("choose2");
 const choose3 = document.getElementById("choose3");
 
 let time = 0;
-let stage = 0; // สถานะของเกม
+let stage = 0;
+let in_line = true;
 
 const word_list = [
   { speaker: "เคน", word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย" },
@@ -27,8 +28,6 @@ const word_list = [
   { speaker: "มิ้น", word: "เครๆ เลี้ยงมันดีๆล่ะ" },
 ];
 
-let in_line = true;
-
 textBox.addEventListener("click", BoxClick);
 
 function BoxClick() {
@@ -38,7 +37,6 @@ function BoxClick() {
     time++;
 
     if (time === 13) {
-      // Change according to the number of messages requiring choices
       in_line = false;
       if (stage === 0) {
         openChoices(
@@ -74,7 +72,6 @@ function closeChoices() {
     choice.classList.remove("visible");
     choice.onclick = null;
   });
-  in_line = true; // Reset in_line to true
 }
 
 function handleChoiceClick(speaker, text, outline) {
@@ -86,7 +83,6 @@ function handleChoiceClick(speaker, text, outline) {
   } else {
     time--;
   }
-
   in_line = true;
 }
 
