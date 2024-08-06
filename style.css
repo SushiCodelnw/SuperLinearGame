@@ -75,3 +75,25 @@ body {
   margin: 0;
   padding: 0;
 }
+
+#background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+}
+
+#character-container {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
