@@ -84,6 +84,7 @@ body {
   height: 100%;
   background-size: cover;
   z-index: -1;
+  
 }
 
 #character-container {
@@ -96,4 +97,5 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 0;
+  background-image: url(/image/kun.png);
 }
