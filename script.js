@@ -3,15 +3,17 @@ const choose1 = document.getElementById("choose1");
 const choose2 = document.getElementById("choose2");
 const choose3 = document.getElementById("choose3");
 
+const backgroundImg = document.getElementById("background-container");
+const characterImg = document.getElementById("character-container");
+
 const backgrounds = {
-  room: 'url("image")',
-  street: 'url("street.jpg")',
+  bedroom: 'url("image/Background/Bedroom.png")',
 };
 
 const characters = {
-  Shin: 'shin.png',
-  dog: 'dog.png',
-  none: '',
+  shin: 'url("image/Character/Shin.png")',
+  sushi: 'url("image/Character/Sushi.png")',
+  none: "",
 };
 
 let time = 0;
@@ -20,8 +22,8 @@ let in_line = true;
 
 const word_list = [
   {
-    character: "Shin",
-    background: "Bedroom",
+    character: "shin",
+    background: "bedroom",
     speaker: "ชิน",
     word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย",
   },
@@ -48,8 +50,10 @@ textBox.addEventListener("click", BoxClick);
 
 function BoxClick() {
   if (in_line) {
-    const { speaker, word } = word_list[time];
+    const { speaker, word, background, character } = word_list[time];
     updateText(speaker, word);
+    updateBackground(background);
+    updateCharacter(character);
     time++;
 
     if (time === 13) {
@@ -77,15 +81,14 @@ function BoxClick() {
   }
 }
 
-function updateBackground(name) {
-  document.getElementById("background-container").style.backgroundImage =
-    backgrounds[index];
+function updateBackground(background) {
+  backgroundImg.style.backgroundImage = backgrounds[background];
 }
 
-function updateCharacter(name) {
-  document.getElementById("character-container").style.backgroundImage =
-    characters[index];
+function updateCharacter(character) {
+  characterImg.style.backgroundImage = characters[character];
 }
+
 function updateText(speaker, word) {
   document.getElementById("speaker").innerText = speaker;
   document.getElementById("text").innerText = word;
@@ -93,9 +96,12 @@ function updateText(speaker, word) {
 
 function closeChoices() {
   [choose1, choose2, choose3].forEach((choice) => {
+    choice.style.transition = "opacity 0.5s ease";  // เพิ่มแอนิเมชัน
     choice.style.opacity = "0";
     choice.classList.remove("visible");
-    choice.onclick = null;
+    setTimeout(() => {
+      choice.onclick = null;
+    }, 500);  // รอให้แอนิเมชันเสร็จก่อนปิด
   });
 }
 
