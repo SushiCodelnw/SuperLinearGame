@@ -3,28 +3,44 @@ const choose1 = document.getElementById("choose1");
 const choose2 = document.getElementById("choose2");
 const choose3 = document.getElementById("choose3");
 
+const backgrounds = {
+  room: 'url("image")',
+  street: 'url("street.jpg")',
+};
+
+const characters = {
+  Shin: 'shin.png',
+  dog: 'dog.png',
+  none: '',
+};
+
 let time = 0;
 let stage = 0;
 let in_line = true;
 
 const word_list = [
-  { speaker: "เคน", word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย" },
-  { speaker: "เคน", word: "เหนื่อยว่ะ รีบกลับหอดีกว่า" },
-  { speaker: "เคน", word: "โว๊ะ นั่นอะไรน่ะ กล่องกระดาษหรอ มันไมพอร์ตคุ้นๆวะ" },
   {
-    speaker: "เคน",
+    character: "Shin",
+    background: "Bedroom",
+    speaker: "ชิน",
+    word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย",
+  },
+  { speaker: "ชิน", word: "เหนื่อยว่ะ รีบกลับหอดีกว่า" },
+  { speaker: "ชิน", word: "โว๊ะ นั่นอะไรน่ะ กล่องกระดาษหรอ มันไมพอร์ตคุ้นๆวะ" },
+  {
+    speaker: "ชิน",
     word: "นั่นไงว่าแล้ว มีหมาอยู่ข้างในด้วย น่ารักจริงๆ เยยยย",
   },
-  { speaker: "เคน", word: "เห้ย!! ทำไมมาอยู่ตรงนี้เนี่ย....ไม่กลับบ้านหรอ" },
-  { speaker: "เคน", word: "...... ไม่ตอบแฮะ" },
-  { speaker: "เคน", word: "ตรู๊ท..ตรุ๊ท" },
-  { speaker: "เคน", word: "เห้ย!! มิ้น กูเจอหมาอยู่ข้างถนนว่ะ ทำไงดีวะ" },
+  { speaker: "ชิน", word: "เห้ย!! ทำไมมาอยู่ตรงนี้เนี่ย....ไม่กลับบ้านหรอ" },
+  { speaker: "ชิน", word: "...... ไม่ตอบแฮะ" },
+  { speaker: "ชิน", word: "ตรู๊ท..ตรุ๊ท" },
+  { speaker: "ชิน", word: "เห้ย!! มิ้น กูเจอหมาอยู่ข้างถนนว่ะ ทำไงดีวะ" },
   { speaker: "มิ้น", word: "หรอ เจอหมา? แล้วจะเอายังไงกับมันอะ" },
-  { speaker: "เคน", word: "ก็กูมาถามมึงนี่ไง" },
+  { speaker: "ชิน", word: "ก็กูมาถามมึงนี่ไง" },
   { speaker: "มิ้น", word: "โทรหาศูนย์ช่วยเหลือสัตว์ดิ" },
-  { speaker: "เคน", word: "ได้ๆ" },
-  { speaker: "เคน", word: "เอาแหละฉันควรทำยังไงดี?" },
-  { speaker: "เคน", word: "ฉันคิดว่าจะพามันกลับห้องน่ะ มิ้น" },
+  { speaker: "ชิน", word: "ได้ๆ" },
+  { speaker: "ชิน", word: "เอาแหละฉันควรทำยังไงดี?" },
+  { speaker: "ชิน", word: "ฉันคิดว่าจะพามันกลับห้องน่ะ มิ้น" },
   { speaker: "มิ้น", word: "เครๆ เลี้ยงมันดีๆล่ะ" },
 ];
 
@@ -41,7 +57,7 @@ function BoxClick() {
       if (stage === 0) {
         openChoices(
           {
-            speaker: "เคน",
+            speaker: "ชิน",
             text: "เก็บมันมาเลี้ยง",
             outline: "มานี้มะ ไอหน้าหมา",
           },
@@ -61,6 +77,15 @@ function BoxClick() {
   }
 }
 
+function updateBackground(name) {
+  document.getElementById("background-container").style.backgroundImage =
+    backgrounds[index];
+}
+
+function updateCharacter(name) {
+  document.getElementById("character-container").style.backgroundImage =
+    characters[index];
+}
 function updateText(speaker, word) {
   document.getElementById("speaker").innerText = speaker;
   document.getElementById("text").innerText = word;
