@@ -89,11 +89,11 @@ body {
 
 #character-container {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
+  bottom: 0%;
+  left: 100%;
   transform: translateX(-50%);
-  width: 50%;
-  height: 50%;
+  width: 75%;
+  height: 75%;
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 0;
