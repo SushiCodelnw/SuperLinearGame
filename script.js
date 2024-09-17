@@ -12,8 +12,8 @@ const backgrounds = {
 };
 
 const characters = {
-  shin: shinImg,
-  sushi: sushiImg,
+  shin: 'image/Character/shin.png',
+  sushi: 'image/Character/sushi.png',
   none: null,
 };
 
@@ -94,10 +94,16 @@ function updateCharacter(charactersArray, actions = {}) {
 
   charactersArray.forEach((character) => {
     if (characters[character]) {
-      characters[
-        character
-      ].style.backgroundImage = `url("image/Character/${character}.png")`;
-
+      const characterImg = document.createElement('img');
+      characterImg.src = characters[character];
+      characterImg.onload = () => {
+        if (character === "shin") {
+          shinImg.style.backgroundImage = `url(${characters[character]})`;
+        } else if (character === "sushi") {
+          sushiImg.style.backgroundImage = `url(${characters[character]})`;
+        }
+      };
+      
       if (actions[character]) {
         applyActions(characters[character], actions[character]);
       }
