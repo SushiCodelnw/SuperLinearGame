@@ -8,7 +8,7 @@ const shinImg = document.getElementById("shin");
 const sushiImg = document.getElementById("sushi");
 
 const backgrounds = {
-  bedroom: 'url("image/Background/Bedroom.png")',
+  bedroom: 'url("image/Background/bedroom.png")',
 };
 
 const characters = {
