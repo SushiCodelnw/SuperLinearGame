@@ -4,16 +4,17 @@ const choose2 = document.getElementById("choose2");
 const choose3 = document.getElementById("choose3");
 
 const backgroundImg = document.getElementById("background-container");
-const characterImg = document.getElementById("character-container");
+const shinImg = document.getElementById("shin");
+const sushiImg = document.getElementById("sushi");
 
 const backgrounds = {
   bedroom: 'url("image/Background/Bedroom.png")',
 };
 
 const characters = {
-  shin: 'url("image/Character/Shin.png")',
-  sushi: 'url("image/Character/Sushi.png")',
-  none: "",
+  shin: shinImg,
+  sushi: sushiImg,
+  none: null,
 };
 
 let time = 0;
@@ -22,41 +23,43 @@ let in_line = true;
 
 const word_list = [
   {
-    character: "shin",
+    character: ["shin", "sushi"],
     background: "bedroom",
     speaker: "ชิน",
     word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย",
+    action: { shin: ["MOVE_X(5px)", "SCALE_X(-1)"], sushi: ["MOVE_Y(10px)"] },
+    loop: { type: "repeat", count: 10 },
   },
-  { speaker: "ชิน", word: "เหนื่อยว่ะ รีบกลับหอดีกว่า" },
-  { speaker: "ชิน", word: "โว๊ะ นั่นอะไรน่ะ กล่องกระดาษหรอ มันไมพอร์ตคุ้นๆวะ" },
   {
+    character: ["shin"],
+    background: "bedroom",
     speaker: "ชิน",
-    word: "นั่นไงว่าแล้ว มีหมาอยู่ข้างในด้วย น่ารักจริงๆ เยยยย",
+    word: "เหนื่อยว่ะ รีบกลับหอดีกว่า",
+    action: { shin: ["MOVE_Y(10%)"] },
+    loop: { type: "untilChange" },
   },
-  { speaker: "ชิน", word: "เห้ย!! ทำไมมาอยู่ตรงนี้เนี่ย....ไม่กลับบ้านหรอ" },
-  { speaker: "ชิน", word: "...... ไม่ตอบแฮะ" },
-  { speaker: "ชิน", word: "ตรู๊ท..ตรุ๊ท" },
-  { speaker: "ชิน", word: "เห้ย!! มิ้น กูเจอหมาอยู่ข้างถนนว่ะ ทำไงดีวะ" },
-  { speaker: "มิ้น", word: "หรอ เจอหมา? แล้วจะเอายังไงกับมันอะ" },
-  { speaker: "ชิน", word: "ก็กูมาถามมึงนี่ไง" },
-  { speaker: "มิ้น", word: "โทรหาศูนย์ช่วยเหลือสัตว์ดิ" },
-  { speaker: "ชิน", word: "ได้ๆ" },
-  { speaker: "ชิน", word: "เอาแหละฉันควรทำยังไงดี?" },
-  { speaker: "ชิน", word: "ฉันคิดว่าจะพามันกลับห้องน่ะ มิ้น" },
-  { speaker: "มิ้น", word: "เครๆ เลี้ยงมันดีๆล่ะ" },
+  {
+    character: ["sushi"],
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "โว๊ะ นั่นอะไรน่ะ กล่องกระดาษหรอ มันไมพอร์ตคุ้นๆวะ",
+    action: {},
+    loop: { type: "once" },
+  },
 ];
 
 textBox.addEventListener("click", BoxClick);
 
 function BoxClick() {
-  if (in_line) {
-    const { speaker, word, background, character } = word_list[time];
-    updateText(speaker, word);
+  if (in_line && time < word_list.length) {
+    const { character, background, speaker, word, action, loop } =
+      word_list[time];
+    updateCharacter(character, action);
     updateBackground(background);
-    updateCharacter(character);
+    updateText(speaker, word);
     time++;
 
-    if (time === 13) {
+    if (time === 5) {
       in_line = false;
       if (stage === 0) {
         openChoices(
@@ -85,8 +88,41 @@ function updateBackground(background) {
   backgroundImg.style.backgroundImage = backgrounds[background];
 }
 
-function updateCharacter(character) {
-  characterImg.style.backgroundImage = characters[character];
+function updateCharacter(charactersArray, actions = {}) {
+  shinImg.style.backgroundImage = "";
+  sushiImg.style.backgroundImage = "";
+
+  charactersArray.forEach((character) => {
+    if (characters[character]) {
+      characters[
+        character
+      ].style.backgroundImage = `url("image/Character/${character}.png")`;
+
+      if (actions[character]) {
+        applyActions(characters[character], actions[character]);
+      }
+    }
+  });
+}
+
+function applyActions(characterImg, actions) {
+  actions.forEach((action) => {
+    if (action.startsWith("MOVE_X")) {
+      const value = action.match(/\d+/)[0];
+      animateAction(characterImg, `translateX(${value})`);
+    } else if (action.startsWith("MOVE_Y")) {
+      const value = action.match(/\d+/)[0];
+      animateAction(characterImg, `translateY(${value})`);
+    } else if (action.startsWith("SCALE_X")) {
+      const value = action.match(/-?\d+/)[0];
+      animateAction(characterImg, `scaleX(${value})`);
+    }
+  });
+}
+
+function animateAction(characterImg, transformValue) {
+  characterImg.style.transition = "transform 0.5s ease-out";
+  characterImg.style.transform += transformValue;
 }
 
 function updateText(speaker, word) {
@@ -96,12 +132,9 @@ function updateText(speaker, word) {
 
 function closeChoices() {
   [choose1, choose2, choose3].forEach((choice) => {
-    choice.style.transition = "opacity 0.5s ease";  // เพิ่มแอนิเมชัน
     choice.style.opacity = "0";
     choice.classList.remove("visible");
-    setTimeout(() => {
-      choice.onclick = null;
-    }, 500);  // รอให้แอนิเมชันเสร็จก่อนปิด
+    choice.onclick = null;
   });
 }
 

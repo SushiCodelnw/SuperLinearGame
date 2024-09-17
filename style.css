@@ -86,14 +86,21 @@ body {
   z-index: -1;
 }
 
-#character-container {
+.character-container {
   position: absolute;
   bottom: 0%;
-  left: 70%;
   transform: translateX(-50%);
   width: 30%;
   height: 70%;
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 0;
+}
+
+#shin{
+  left: 70%;
+}
+
+#sushi{
+  left: 30%;
 }
