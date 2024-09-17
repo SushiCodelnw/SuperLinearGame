@@ -27,7 +27,7 @@ const word_list = [
     background: "bedroom",
     speaker: "ชิน",
     word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย",
-    action: { shin: ["MOVE_X(5px)", "SCALE_X(-1)"], sushi: ["MOVE_Y(10px)"] },
+    action: { shin: ["moveX(5px)", "scaleX(-1)"], sushi: ["moveY(10px)"] },
     loop: { type: "repeat", count: 10 },
   },
   {
@@ -35,7 +35,7 @@ const word_list = [
     background: "bedroom",
     speaker: "ชิน",
     word: "เหนื่อยว่ะ รีบกลับหอดีกว่า",
-    action: { shin: ["MOVE_Y(10%)"] },
+    action: { shin: ["moveY(10px)"] },
     loop: { type: "untilChange" },
   },
   {
@@ -89,23 +89,20 @@ function updateBackground(background) {
 }
 
 function updateCharacter(charactersArray, actions = {}) {
+  // Reset image and transformation styles for each character
   shinImg.style.backgroundImage = "";
+  shinImg.style.transform = "";
   sushiImg.style.backgroundImage = "";
+  sushiImg.style.transform = "";
 
   charactersArray.forEach((character) => {
     if (characters[character]) {
-      const characterImg = document.createElement('img');
-      characterImg.src = characters[character];
-      characterImg.onload = () => {
-        if (character === "shin") {
-          shinImg.style.backgroundImage = `url(${characters[character]})`;
-        } else if (character === "sushi") {
-          sushiImg.style.backgroundImage = `url(${characters[character]})`;
-        }
-      };
-      
-      if (actions[character]) {
-        applyActions(characters[character], actions[character]);
+      if (character === "shin") {
+        shinImg.style.backgroundImage = `url(${characters[character]})`;
+        applyActions(shinImg, actions[character] || []);
+      } else if (character === "sushi") {
+        sushiImg.style.backgroundImage = `url(${characters[character]})`;
+        applyActions(sushiImg, actions[character] || []);
       }
     }
   });
@@ -113,22 +110,17 @@ function updateCharacter(charactersArray, actions = {}) {
 
 function applyActions(characterImg, actions) {
   actions.forEach((action) => {
-    if (action.startsWith("MOVE_X")) {
+    if (action.startsWith("moveX")) {
       const value = action.match(/\d+/)[0];
-      animateAction(characterImg, `translateX(${value})`);
-    } else if (action.startsWith("MOVE_Y")) {
+      characterImg.style.transform += ` translateX(${value}px)`;
+    } else if (action.startsWith("moveY")) {
       const value = action.match(/\d+/)[0];
-      animateAction(characterImg, `translateY(${value})`);
-    } else if (action.startsWith("SCALE_X")) {
+      characterImg.style.transform += ` translateY(${value}px)`;
+    } else if (action.startsWith("scaleX")) {
       const value = action.match(/-?\d+/)[0];
-      animateAction(characterImg, `scaleX(${value})`);
+      characterImg.style.transform += ` scaleX(${value})`;
     }
   });
-}
-
-function animateAction(characterImg, transformValue) {
-  characterImg.style.transition = "transform 0.5s ease-out";
-  characterImg.style.transform += transformValue;
 }
 
 function updateText(speaker, word) {
