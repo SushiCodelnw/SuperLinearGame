@@ -82,20 +82,25 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: 100% 100%;
   z-index: -1;
-  
 }
 
-#character-container {
+.character-container {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
+  bottom: 0%;
   transform: translateX(-50%);
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 70%;
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 0;
-  background-image: url(/image/Sushi3.png);
+}
+
+#shin{
+  left: 70%;
+}
+
+#sushi{
+  left: 30%;
 }
