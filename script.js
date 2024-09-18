@@ -7,7 +7,7 @@ const backgroundImg = document.getElementById("background-container");
 const characterImg = document.getElementById("character-container");
 
 const backgrounds = {
-  bedroom: 'url("image/Background/bedroom.png")',
+  bedroom: 'url("image/Background/Bedroom.png")',
 };
 
 const characters = {
