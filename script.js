@@ -89,7 +89,6 @@ function updateBackground(background) {
 }
 
 function updateCharacter(charactersArray, actions = {}) {
-  // Reset image and transformation styles for each character
   shinImg.style.backgroundImage = "";
   shinImg.style.transform = "";
   sushiImg.style.backgroundImage = "";
