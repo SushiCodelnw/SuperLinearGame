@@ -61,12 +61,13 @@ body {
   top: 60%;
   width: 70%;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px; /* Adjust padding here */
+  padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
   margin: 20px;
 }
 #speaker {
+  text-align: center;
   font-size: 5vh;
   color: #fff;
   text-shadow: 2px 4px 6px black;
@@ -86,21 +87,13 @@ body {
   z-index: -1;
 }
 
-.character-container {
+#character-container {
   position: absolute;
   bottom: 0%;
-  transform: translateX(-50%);
-  width: 30%;
-  height: 70%;
-  background-size: contain;
+  left: 50%;
+  transform: translateX(-35%);
+  padding: 20% 12%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: 0;
-}
-
-#shin{
-  left: 70%;
-}
-
-#sushi{
-  left: 30%;
 }
