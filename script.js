@@ -8,12 +8,12 @@ const shinImg = document.getElementById("shin");
 const sushiImg = document.getElementById("sushi");
 
 const backgrounds = {
-  bedroom: 'url("image/Background/bedroom.png")',
+  bedroom: 'url("image/Background/Bedroom.png")',
 };
 
 const characters = {
-  shin: 'image/Character/shin.png',
-  sushi: 'image/Character/sushi.png',
+  shin: shinImg,
+  sushi: sushiImg,
   none: null,
 };
 
@@ -27,16 +27,20 @@ const word_list = [
     background: "bedroom",
     speaker: "ชิน",
     word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย",
-    action: { shin: ["moveX(5px)", "scaleX(-1)"], sushi: ["moveY(10px)"] },
-    loop: { type: "repeat", count: 10 },
+    action: {
+      shin: [
+        { type: "moveX", value: 5, repeat: 10, delay: 100 },
+        { type: "scaleX", value: -1, repeat: 1, delay: 0 },
+      ],
+      sushi: [{ type: "moveY", value: 10, repeat: 5, delay: 200 }],
+    },
   },
   {
     character: ["shin"],
     background: "bedroom",
     speaker: "ชิน",
     word: "เหนื่อยว่ะ รีบกลับหอดีกว่า",
-    action: { shin: ["moveY(10px)"] },
-    loop: { type: "untilChange" },
+    action: { shin: [{ type: "moveY", value: 10, repeat: 1, delay: 0 }] },
   },
   {
     character: ["sushi"],
@@ -44,7 +48,6 @@ const word_list = [
     speaker: "ชิน",
     word: "โว๊ะ นั่นอะไรน่ะ กล่องกระดาษหรอ มันไมพอร์ตคุ้นๆวะ",
     action: {},
-    loop: { type: "once" },
   },
 ];
 
@@ -52,8 +55,7 @@ textBox.addEventListener("click", BoxClick);
 
 function BoxClick() {
   if (in_line && time < word_list.length) {
-    const { character, background, speaker, word, action, loop } =
-      word_list[time];
+    const { character, background, speaker, word, action } = word_list[time];
     updateCharacter(character, action);
     updateBackground(background);
     updateText(speaker, word);
@@ -90,35 +92,49 @@ function updateBackground(background) {
 
 function updateCharacter(charactersArray, actions = {}) {
   shinImg.style.backgroundImage = "";
-  shinImg.style.transform = "";
   sushiImg.style.backgroundImage = "";
-  sushiImg.style.transform = "";
 
   charactersArray.forEach((character) => {
     if (characters[character]) {
-      if (character === "shin") {
-        shinImg.style.backgroundImage = `url(${characters[character]})`;
-        applyActions(shinImg, actions[character] || []);
-      } else if (character === "sushi") {
-        sushiImg.style.backgroundImage = `url(${characters[character]})`;
-        applyActions(sushiImg, actions[character] || []);
+      characters[
+        character
+      ].style.backgroundImage = `url("image/Character/${character}.png")`;
+
+      if (actions[character]) {
+        applyActions(characters[character], actions[character]);
       }
     }
   });
 }
 
 function applyActions(characterImg, actions) {
-  actions.forEach((action) => {
-    if (action.startsWith("moveX")) {
-      const value = action.match(/\d+/)[0];
-      characterImg.style.transform += ` translateX(${value}px)`;
-    } else if (action.startsWith("moveY")) {
-      const value = action.match(/\d+/)[0];
-      characterImg.style.transform += ` translateY(${value}px)`;
-    } else if (action.startsWith("scaleX")) {
-      const value = action.match(/-?\d+/)[0];
-      characterImg.style.transform += ` scaleX(${value})`;
-    }
+  actions.forEach(({ type, value, repeat, delay }) => {
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count >= repeat) {
+        clearInterval(interval);
+        return;
+      }
+
+      if (type === "moveX") {
+        characterImg.style.transition = `transform ${
+          delay / 1000
+        }s ease-in-out`;
+        characterImg.style.transform += ` translateX(${value}px)`;
+      } else if (type === "moveY") {
+        characterImg.style.transition = `transform ${
+          delay / 1000
+        }s ease-in-out`;
+        characterImg.style.transform += ` translateY(${value}px)`;
+      } else if (type === "scaleX") {
+        characterImg.style.transition = `transform ${
+          delay / 1000
+        }s ease-in-out`;
+        characterImg.style.transform += ` scaleX(${value})`;
+      }
+
+      count++;
+    }, delay);
   });
 }
 
