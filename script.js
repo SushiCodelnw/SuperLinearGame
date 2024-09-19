@@ -10,12 +10,17 @@ const backgrounds = {
   bedroom: 'url("image/Background/bedroom.png")',
   store: 'url("image/Background/store.png")',
   street: 'url("image/Background/street.png")',
+  dog: 'url("image/Background/dog.png")',
+  dogeat: 'url("image/Background/dogeat.png")',
+  dogbright: 'url("image/Background/dogbright.png")',
+  dogverybright: 'url("image/Background/dogverybright.png")',
 };
 
 const characters = {
   shin: 'url("image/Character/shin.png")',
   sushi: 'url("image/Character/sushi.png")',
   storekeeper: 'url("image/Character/storekeeper.png")',
+  SushiCodelnw: 'url("image/Character/SushiCodelnw.png")',
 };
 
 let time = 0;
@@ -36,14 +41,14 @@ const word_list = [
     word: "โว๊ะ นั่นอะไรน่ะ? กล่องกระดาษเหรอ? สงสัยจังว่าอะไรอยู่ข้างใน...",
   },
   {
-    character: "shin",
-    background: "street",
+    character: "",
+    background: "dog",
     speaker: "ชิน",
     word: "เชี่ย! มีลูกหมาอยู่ข้างในด้วย!",
   },
   {
-    character: "shin",
-    background: "street",
+    character: "",
+    background: "dog",
     speaker: "ชิน",
     word: "ฉันยิ่งชอบหมาอยู่ด้วยสิ... เอาไงกับมันดีนะ?",
   },
@@ -121,81 +126,105 @@ const word_list = [
   },
   {
     character: "shin",
-    background: "home",
+    background: "store",
+    speaker: "ชิน",
+    word: "เอาแหละ ได้เวลากลับบ้านกันแล้ว!!",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
     speaker: "ชิน",
     word: "เฮ้อ... ถึงบ้านสักที รอแป๊บนะ เดี๋ยวเอาอาหารให้กิน",
   },
   {
-    character: "shin",
-    background: "home",
+    character: "",
+    background: "dogeat",
+    speaker: "ซูชิ",
+    word: "ง่ำๆๆๆๆๆ",
+  },
+  {
+    character: "",
+    background: "dogbright",
     speaker: "ชิน",
-    word: "เห้ย! เกิดอะไรขึ้นเนี่ย? อ้าาาาาา!!!",
+    word: "เห้ย! เกิดอะไรขึ้นเนี่ย?",
+  },
+  {
+    character: "",
+    background: "dogverybright",
+    speaker: "ชิน",
+    word: "อ้าาาาาา!!!",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "ว๊าา! อะไรเนี่ย!!",
   },
   {
     character: "sushi",
-    background: "home",
+    background: "bedroom",
     speaker: "ซูชิ",
-    word: "เกิดอะไรขึ้นกันล่ะเนี่ย",
+    word: "ว้าา.. สูงจัง",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: ".",
   },
   {
     character: "sushi",
-    background: "home",
+    background: "bedroom",
     speaker: "ซูชิ",
     word: "..",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "...",
   },
   {
     character: "sushi",
-    background: "home",
+    background: "bedroom",
     speaker: "ซูชิ",
     word: "....",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "นี่มัน... อะไรกันล่ะเนี่ย? น่ะ...นาย.. เป็นคน? งั้นหรอ?",
   },
   {
     character: "sushi",
-    background: "home",
+    background: "bedroom",
     speaker: "ซูชิ",
     word: "ฉันก็ไม่รู้วววววว ทำไมอยู่ดีๆฉันกลายเป็นเหมือนนายล่ะเนี่ย",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "อะไรกันล่ะเนี่ย (แต่... ตอนเป็นหมาก็น่ารักอยู่แล้วนะ ทะ..ทำไมตอนนายกลายเป็นคนมันก็....)",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "หรือว่าจะเป็นเพราะอาหารหมาที่ลุงให้มากันนะ เพราะหลังจากที่นายกิน นายก็กลายเป็นคนเลยในอีกไม่กี่วินาทีตอนมา",
   },
   {
     character: "shin",
-    background: "home",
+    background: "bedroom",
     speaker: "ชิน",
     word: "ถึงจะยังไม่เข้าใจก็เหอะ แต่นายต้องอยู่กับฉันไปก่อนล่ะนะ",
+  },
+  {
+    character: "SushiCodelnw",
+    background: "bedroom",
+    speaker: "ซูชิ(Codelnw)",
+    word: "แจ๊ะเอ๋ จบบทแรกจ้า ส่วนบทสองก็ Coming soon.....",
   },
 ];
 
@@ -207,8 +236,8 @@ function BoxClick() {
     updateText(speaker, word);
     time++;
 
-    if (time === 3) {
-      hideTextBox();
+    if (time === 3 || time === 20 || time === 21) {
+      hideTextBox(1);
     }
 
     if (time === 4) {
@@ -237,10 +266,12 @@ function BoxClick() {
 }
 
 function updateBackground(background) {
+  backgroundImg.style.backgroundImage = "";
   backgroundImg.style.backgroundImage = backgrounds[background];
 }
 
 function updateCharacter(character = {}) {
+  characterImg.style.backgroundImage = "";
   characterImg.style.backgroundImage = characters[character];
 }
 
@@ -249,7 +280,7 @@ function updateText(speaker, word) {
   document.getElementById("text").innerText = word;
 }
 
-function hideTextBox() {
+function hideTextBox(delay) {
   textBox.style.transition = "opacity 0.1s";
   textBox.style.opacity = "0";
   textBox.onclick = null;
@@ -257,7 +288,7 @@ function hideTextBox() {
   setTimeout(() => {
     textBox.style.opacity = "1";
     textBox.onclick = BoxClick;
-  }, 2000);
+  }, delay * 1000);
 }
 
 function closeChoices() {
