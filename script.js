@@ -7,12 +7,15 @@ const backgroundImg = document.getElementById("background-container");
 const characterImg = document.getElementById("character-container");
 
 const backgrounds = {
-  bedroom: 'url("image/Background/Bedroom.png")',
+  bedroom: 'url("image/Background/bedroom.png")',
+  store: 'url("image/Background/store.png")',
+  street: 'url("image/Background/street.png")',
 };
 
 const characters = {
   shin: 'url("image/Character/shin.png")',
   sushi: 'url("image/Character/sushi.png")',
+  storekeeper: 'url("image/Character/storekeeper.png")',
 };
 
 let time = 0;
@@ -22,55 +25,55 @@ let in_line = true;
 const word_list = [
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย... รีบกลับบ้านดีกว่า",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "โว๊ะ นั่นอะไรน่ะ? กล่องกระดาษเหรอ? สงสัยจังว่าอะไรอยู่ข้างใน...",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "เชี่ย! มีลูกหมาอยู่ข้างในด้วย!",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "ฉันยิ่งชอบหมาอยู่ด้วยสิ... เอาไงกับมันดีนะ?",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "โอเคๆ ฉันจะไม่ปล่อยให้นายอยู่ตรงนี้หรอก...",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "เห.. มีใบกระดาษอยู่ในกล่องด้วย.. เขียนว่า ซูชิ",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "งั้นหรอ นายชื่อซูชิสินะ ไปกันเถอะ ซูชิ!!",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "ก่อนอื่น... คงต้องหาข้าวให้มันกินก่อน",
   },
   {
     character: "shin",
-    background: "bedroom",
+    background: "street",
     speaker: "ชิน",
     word: "ไปซื้ออาหารหมาดีกว่า",
   },
