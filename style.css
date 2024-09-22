@@ -45,7 +45,7 @@ body {
 }
 
 #choose1 {
-  top: 30%;
+  top: 50%;
 }
 
 #choose2 {
@@ -53,18 +53,18 @@ body {
 }
 
 #choose3 {
-  top: 50%;
+  top: 30%;
 }
 
 #text-box {
   position: absolute;
-  top: 60%;
+  bottom: 2%;
   width: 70%;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  margin: 20px;
+  margin: 0;
 }
 #speaker {
   text-align: center;
@@ -87,13 +87,15 @@ body {
   z-index: -1;
 }
 
+
 #character-container {
+  width: 52vh;
+  height: 90vh;
   position: absolute;
-  bottom: 0%;
+  transform: translateX(-50%);
   left: 50%;
-  transform: translateX(-35%);
-  padding: 20% 12%;
-  background-size: 100% 100%;
+  bottom: 0%;
   background-repeat: no-repeat;
+  background-size: contain;
   z-index: 0;
 }

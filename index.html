@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <embed src="/sound/Music.mp3" loop="true" hidden="true" autostart="true" />
     <div id="background-container"></div>
     <div id="character-container"></div>
-    <div id="text-box" class="box" onclick="BoxClick()">
+    <div id="text-box" class="box">
       <h1 id="speaker"></h1>
       <h1 id="text"></h1>
     </div>
@@ -18,6 +19,6 @@
       <div id="choose2" class="choose"></div>
       <div id="choose3" class="choose"></div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
