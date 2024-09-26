@@ -1,6 +1,6 @@
 ## My Dog (is) My Life
 
-https://sushicodelnw.github.io/SuperLinearGame/
+https://sushicodelnw.github.io/MorphoPaws/
 
 &nbsp;&nbsp;&nbsp;&nbsp;**My Dog (is) My Life** เป็นเกมแนว Visual Novel ที่มาพร้อมกับเรื่องราวความรักและการผจญภัย โดยมีเนื้อเรื่องโรแมนติกที่เกิดขึ้นระหว่างนักศึกษาหนุ่มกับลูกหมาน่ารักตัวหนึ่ง เกมนี้ออกแบบมาให้ผู้เล่นสามารถเลือกช้อยส์เพื่อตัดสินใจในสถานการณ์ต่าง ๆ ซึ่งจะมีผลต่อเนื้อเรื่องในอนาคต
 
