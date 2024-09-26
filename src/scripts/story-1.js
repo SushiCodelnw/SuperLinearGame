@@ -1,0 +1,228 @@
+export const word_list_1 = [
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "โอ้ยยยย ข้อสอบวันนี้นี่มันยากจริงๆเลย... รีบกลับบ้านดีกว่า",
+  },
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "โว๊ะ นั่นอะไรน่ะ? กล่องกระดาษเหรอ? สงสัยจังว่าอะไรอยู่ข้างใน...",
+  },
+  {
+    character: "",
+    background: "dog",
+    speaker: "ชิน",
+    word: "เชี่ย! มีลูกหมาอยู่ข้างในด้วย!",
+    hideTextBox: 1,
+    nextlist: "word_list_2"
+  },
+]
+export const word_list_2 = [
+  {
+    character: "",
+    background: "dog",
+    speaker: "ชิน",
+    word: "ฉันยิ่งชอบหมาอยู่ด้วยสิ... เอาไงกับมันดีนะ?",
+    openChoices: {
+      choice1: {
+        speaker: "ชิน",
+        text: "เก็บมันมาเลี้ยง",
+        outline: "คงมีแค่วิธีนี้แหละ!",
+        result: "word_list_3",
+      },
+      choice2: {
+        speaker: "ชิน",
+        text: "ปล่อยมันไว้อย่างงั้นแหละ",
+        outline: "ไม่เอาๆๆๆๆๆ มันน่าสงสารจะตาย",
+        result: "word_list_2",
+      },
+      choice3: {
+        speaker: "ชิน",
+        text: "โทรหาศูนย์ช่วยเหลือสัตว์",
+        outline: "แต่ฉันไม่รู้เบอร์แฮะ คงต้องเลือกวิธีอื่น",
+        result: "word_list_2",
+      },
+    },
+  },
+];
+export const word_list_3 = [
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "โอเคๆ ฉันจะไม่ปล่อยให้นายอยู่ตรงนี้หรอก...",
+  },
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "เห.. มีใบกระดาษอยู่ในกล่องด้วย.. เขียนว่า ซูชิ",
+  },
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "งั้นหรอ นายชื่อซูชิสินะ ไปกันเถอะ ซูชิ!!",
+  },
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "ก่อนอื่น... คงต้องหาข้าวให้มันกินก่อน",
+  },
+  {
+    character: "shin",
+    background: "street",
+    speaker: "ชิน",
+    word: "ไปซื้ออาหารหมาดีกว่า",
+  },
+  {
+    character: "shin",
+    background: "store",
+    speaker: "ชิน",
+    word: "สวัสดีคร้าบบบบบบ ลุง",
+  },
+  {
+    character: "storekeeper",
+    background: "store",
+    speaker: "ลุง",
+    word: "หวัสดีจ่ะหลาน! เอาอะไรดีล่ะ?",
+  },
+  {
+    character: "shin",
+    background: "store",
+    speaker: "ชิน",
+    word: "เอาเป็น... อาหารหมา... ลุงแนะนำได้ไหมครับว่าเอาแบบไหนดี",
+  },
+  {
+    character: "storekeeper",
+    background: "store",
+    speaker: "ลุง",
+    word: "ลุงมีนี่แนะนำ อาหารหมาจากญี่ปุ่น ปกติเหมือนจะขายกันหลายร้อยเลยนะ แต่ลุงได้มาฟรีน่ะ เมื่อวานเพื่อนลุงซื้อมาฝาก งั้นลุงขายแค่ 100 เดียวจ่ะ",
+  },
+  {
+    character: "shin",
+    background: "store",
+    speaker: "ชิน",
+    word: "โอ้ววว ลุงใจดีจัง ขอบคุณมากนะครับลุง",
+  },
+  {
+    character: "storekeeper",
+    background: "store",
+    speaker: "ลุง",
+    word: "ไม่เป็นไรจ่ะ โชคดีนะ เลี้ยงมันดีๆล่ะ",
+  },
+  {
+    character: "shin",
+    background: "store",
+    speaker: "ชิน",
+    word: "ครับ ขอบคุณมากเลยครับลุง",
+  },
+  {
+    character: "shin",
+    background: "store",
+    speaker: "ชิน",
+    word: "เอาแหละ ได้เวลากลับบ้านกันแล้ว!!",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "เฮ้อ... ถึงบ้านสักที รอแป๊บนะ เดี๋ยวเอาอาหารให้กิน",
+  },
+  {
+    character: "",
+    background: "dogeat",
+    speaker: "ซูชิ",
+    word: "ง่ำๆๆๆๆๆ",
+  },
+  {
+    character: "",
+    background: "dogbright",
+    speaker: "ชิน",
+    word: "เห้ย! เกิดอะไรขึ้นเนี่ย?",
+    hideTextBox: 1,
+  },
+  {
+    character: "",
+    background: "dogverybright",
+    speaker: "ชิน",
+    word: "อ้าาาาาา!!!",
+    hideTextBox: 1,
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "ว๊าา! อะไรเนี่ย!!",
+  },
+  {
+    character: "sushi",
+    background: "bedroom",
+    speaker: "ซูชิ",
+    word: "ว้าา.. สูงจัง",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: ".",
+  },
+  {
+    character: "sushi",
+    background: "bedroom",
+    speaker: "ซูชิ",
+    word: "..",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "...",
+  },
+  {
+    character: "sushi",
+    background: "bedroom",
+    speaker: "ซูชิ",
+    word: "....",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "นี่มัน... อะไรกันล่ะเนี่ย? น่ะ...นาย.. เป็นคน? งั้นหรอ?",
+  },
+  {
+    character: "sushi",
+    background: "bedroom",
+    speaker: "ซูชิ",
+    word: "ฉันก็ไม่รู้วววววว ทำไมอยู่ดีๆฉันกลายเป็นเหมือนนายล่ะเนี่ย",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "อะไรกันล่ะเนี่ย (แต่... ตอนเป็นหมาก็น่ารักอยู่แล้วนะ ทะ..ทำไมตอนนายกลายเป็นคนมันก็....)",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "หรือว่าจะเป็นเพราะอาหารหมาที่ลุงให้มากันนะ เพราะหลังจากที่นายกิน นายก็กลายเป็นคนเลยในอีกไม่กี่วินาทีตอนมา",
+  },
+  {
+    character: "shin",
+    background: "bedroom",
+    speaker: "ชิน",
+    word: "ถึงจะยังไม่เข้าใจก็เหอะ แต่นายต้องอยู่กับฉันไปก่อนล่ะนะ",
+  },
+  {
+    character: "SushiCodelnw",
+    background: "bedroom",
+    speaker: "ซูชิ(Codelnw)",
+    word: "แจ๊ะเอ๋ จบบทแรกจ้า ส่วนบทสองก็ Coming soon.....",
+  },
+];
