@@ -28,21 +28,24 @@ export const word_list_2 = [
     word: "ฉันยิ่งชอบหมาอยู่ด้วยสิ... เอาไงกับมันดีนะ?",
     openChoices: {
       choice1: {
+        background: "dog",
         speaker: "ชิน",
+        word: "คงมีแค่วิธีนี้แหละ!",
         text: "เก็บมันมาเลี้ยง",
-        outline: "คงมีแค่วิธีนี้แหละ!",
         result: "word_list_3",
       },
       choice2: {
+        background: "dog",
         speaker: "ชิน",
+        word: "ไม่เอาๆๆๆๆๆ มันน่าสงสารจะตาย",
         text: "ปล่อยมันไว้อย่างงั้นแหละ",
-        outline: "ไม่เอาๆๆๆๆๆ มันน่าสงสารจะตาย",
         result: "word_list_2",
       },
       choice3: {
+        background: "dog",
         speaker: "ชิน",
+        word: "แต่ฉันไม่รู้เบอร์แฮะ คงต้องเลือกวิธีอื่น",
         text: "โทรหาศูนย์ช่วยเหลือสัตว์",
-        outline: "แต่ฉันไม่รู้เบอร์แฮะ คงต้องเลือกวิธีอื่น",
         result: "word_list_2",
       },
     },
