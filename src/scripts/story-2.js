@@ -1,3 +1,4 @@
+// อากาซาวะ ชินทาโร่ ... อากาซาวะมันโซ
 export const word_list_1 = [
   {
     character: "sushi",

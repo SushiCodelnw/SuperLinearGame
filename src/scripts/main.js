@@ -1,4 +1,4 @@
-import { word_list_1, word_list_2 } from "./story-2.js";
+import { word_list_1, word_list_2, word_list_3 } from "./story-1.js";
 
 const textBox = document.getElementById("text-box");
 const choose1 = document.getElementById("choose1");
@@ -49,14 +49,14 @@ function BoxClick() {
 function updateBackground(background) {
   backgroundImg.style.backgroundImage = "";
   if (background) {
-    backgroundImg.style.backgroundImage = `url("image/Backgrounds/${background}.png")`;
+    backgroundImg.style.backgroundImage = `url("assets/images/Backgrounds/${background}.png")`;
   }
 }
 
 function updateCharacter(character) {
   characterImg.style.backgroundImage = "";
   if (character) {
-    characterImg.style.backgroundImage = `url("image/Characters/${character}.png")`;
+    characterImg.style.backgroundImage = `url("assets/images/Characters/${character}.png")`;
   }
 }
 
@@ -102,6 +102,8 @@ function switchWordList(result) {
       return [...word_list_1];
     case "word_list_2":
       return [...word_list_2];
+    case "word_list_3":
+      return [...word_list_3];
   }
 }
 

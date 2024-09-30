@@ -5,38 +5,46 @@ body {
   font-family: "Arial", sans-serif;
 }
 .box {
-  position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
   height: 30%;
-  border: 1px solid #000;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 #text {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 90%;
   font-size: 3vh;
   color: #fff;
   text-indent: 30px;
 }
 
 .choose {
+  color: #fff;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 30%;
+  width: 80%;
   height: 5%;
-  background-color: #aaa;
   text-align: center;
   font-size: 4vh;
   opacity: 0;
-  margin: 10px 0;
-  border: 1px solid #000;
+  margin: auto auto;
   cursor: default;
   pointer-events: none;
   transition: opacity 0.3s ease, cursor 0.3s ease;
   z-index: 2;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .choose.visible {
@@ -58,20 +66,30 @@ body {
 
 #text-box {
   position: absolute;
-  bottom: 2%;
-  width: 70%;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px;
-  border-radius: 10px;
+  bottom: 0%;
+  width: 95%;
+
+  padding: 1vw 2vw;
   cursor: pointer;
   margin: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  );
 }
+
 #speaker {
   text-align: center;
   font-size: 5vh;
   color: #fff;
   text-shadow: 2px 4px 6px black;
 }
+
 #text-box h1 {
   margin: 0;
   padding: 0;
@@ -87,9 +105,8 @@ body {
   z-index: -1;
 }
 
-
 #character-container {
-  width: 52vh;
+  width: 68vh;
   height: 90vh;
   position: absolute;
   transform: translateX(-50%);
