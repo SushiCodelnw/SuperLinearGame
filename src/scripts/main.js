@@ -25,6 +25,7 @@ function BoxClick() {
       hideTextBox: hideDelay,
       openChoices: choices,
     } = word_list[time];
+    console.log(`Background: ${background}, Character: ${character}`);
     updateCharacter(character);
     updateBackground(background);
     updateText(speaker, word);
