@@ -1,6 +1,5 @@
 import { word_list_1, word_list_2, word_list_3 } from "./story-1.js";
 
-
 //! ====================
 //! การประกาศตัวแปร
 //! ====================
@@ -22,7 +21,6 @@ let isActiveAndInLine = false;
 let isTyping = false;
 let interval;
 let fullWord = "";
-
 
 //! ====================
 //! ฟังก์ชันการทำงาน
@@ -59,7 +57,6 @@ function BoxClick() {
   }
 }
 
-
 //! ====================
 //! ฟังก์ชันการอัปเดต
 //! ====================
@@ -68,7 +65,7 @@ function BoxClick() {
 function updateText(speaker, word) {
   const textElement = document.getElementById("text");
   document.getElementById("speaker").innerText = speaker;
-  textElement.innerText = ""; // เคลียร์ข้อความเก่า
+  textElement.innerText = "";
 
   fullWord = word;
   let index = 0;
@@ -111,7 +108,6 @@ function updateCharacter(character) {
       break;
   }
 }
-
 
 //! ====================
 //! ฟังก์ชันสถานการณ์
@@ -188,8 +184,6 @@ function switchWordList(result) {
       return [...word_list_3];
   }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   if (textBox) {
