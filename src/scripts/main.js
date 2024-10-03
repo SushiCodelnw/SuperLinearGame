@@ -25,7 +25,6 @@ function BoxClick() {
       hideTextBox: hideDelay,
       openChoices: choices,
     } = word_list[time];
-    console.log(`Background: ${background}, Character: ${character}`);
     updateCharacter(character);
     updateBackground(background);
     updateText(speaker, word);
@@ -50,14 +49,14 @@ function BoxClick() {
 function updateBackground(background) {
   backgroundImg.style.backgroundImage = "";
   if (background) {
-    backgroundImg.style.backgroundImage = `url("assets/images/Backgrounds/${background}.png")`;
+    backgroundImg.style.backgroundImage = `url("assets/images/backgrounds/${background}.png")`;
   }
 }
 
 function updateCharacter(character) {
   characterImg.style.backgroundImage = "";
   if (character) {
-    characterImg.style.backgroundImage = `url("assets/images/Characters/${character}.png")`;
+    characterImg.style.backgroundImage = `url("assets/images/characters/${character.name}/${character.reaction}.png")`;
   }
 }
 
