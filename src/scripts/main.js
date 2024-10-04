@@ -50,10 +50,8 @@ function BoxClick() {
     updateText(speaker, word);
 
     hideDelay ? hideTextBox(hideDelay) : "";
-    nextlist ? (wordList = switchWordList(nextlist)) : time++;
-    choices
-      ? openChoices(choices.choice1, choices.choice2, choices.choice3)
-      : "";
+    choices ? openChoices(choices) : "";
+    nextlist ? wordList = switchWordList(nextlist) : time++;
   }
 }
 
@@ -126,17 +124,17 @@ function hideTextBox(delay) {
 }
 
 // ฟังก์ชันเปิดตัวเลือก
-function openChoices(choice1, choice2, choice3) {
+function openChoices(choices) {
   isActiveAndInLine = false;
-  if (choice1) {
-    openChoice(choose1, choice1);
-  }
-  if (choice2) {
-    openChoice(choose2, choice2);
-  }
-  if (choice3) {
-    openChoice(choose3, choice3);
-  }
+  choices.choice1
+    ? openChoice(choose1, choices.choice1);
+    : "";
+  choices.choice2
+    ? openChoice(choose2, choices.choice2);
+    : "";
+  choices.choice3
+    ? openChoice(choose3, choices.choice3);
+    : "";
 }
 
 // ฟังก์ชันจัดการตัวเลือก
