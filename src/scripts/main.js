@@ -127,13 +127,13 @@ function hideTextBox(delay) {
 function openChoices(choices) {
   isActiveAndInLine = false;
   choices.choice1
-    ? openChoice(choose1, choices.choice1);
+    ? openChoice(choose1, choices.choice1)
     : "";
   choices.choice2
-    ? openChoice(choose2, choices.choice2);
+    ? openChoice(choose2, choices.choice2)
     : "";
   choices.choice3
-    ? openChoice(choose3, choices.choice3);
+    ? openChoice(choose3, choices.choice3)
     : "";
 }
 
