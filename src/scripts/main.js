@@ -49,8 +49,8 @@ function BoxClick() {
     updateBackground(background);
     updateText(speaker, word);
 
-    hideDelay ? hideTextBox(hideDelay) : "";
-    choices ? openChoices(choices) : "";
+    hideDelay && hideTextBox(hideDelay);
+    choices && openChoices(choices);
     nextlist ? wordList = switchWordList(nextlist) : time++;
   }
 }
@@ -84,9 +84,7 @@ function updateText(speaker, word) {
 
 // ฟังก์ชันอัปเดตภาพพื้นหลัง
 function updateBackground(background) {
-  backgroundImg.style.backgroundImage = background
-    ? `url("assets/images/backgrounds/${background}.png")`
-    : "";
+  backgroundImg.style.backgroundImage = `url("assets/images/backgrounds/${background}.png")`
 }
 
 // ฟังก์ชันอัปเดตภาพตัวละคร
